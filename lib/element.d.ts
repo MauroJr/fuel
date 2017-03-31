@@ -14,7 +14,7 @@
  * @fileoverview
  * @author Taketoshi Aono
  */
-import { FuelElement, BuiltinFuelElement, StatelessFuelElement, ComponentFuelElement, FactoryFuelElement, Property, FuelComponentType, Stem } from './type';
+import { FuelElement, BuiltinFuelElement, StatelessFuelElement, ComponentFuelElement, FactoryFuelElement, FuelDOMNode, Property, FuelComponentType, Stem } from './type';
 import { Renderer } from './renderer/renderer';
 export declare const INSTANCE_ELEMENT_SYM: any;
 export declare const FuelElementView: {
@@ -25,6 +25,10 @@ export declare const FuelElementView: {
     isComponentClass(fuelElement: FuelElement): fuelElement is ComponentFuelElement;
     tagNameOf(fuelElement: FuelElement): string;
     hasChildren(el: FuelElement): boolean;
+    cleanupElement(el: FuelElement): void;
+    attachFuelElementToNode(node: FuelDOMNode, fuelElement: FuelElement): void;
+    detachFuelElementFromNode(node: FuelDOMNode): void;
+    getFuelElementFromNode(el: FuelDOMNode): FuelElement;
     isFuelElement(fuelElement: any): fuelElement is FuelElement;
     isTextNode(fuelElement: FuelElement): fuelElement is BuiltinFuelElement;
     getTextValueOf(fuelElement: FuelElement): string;
